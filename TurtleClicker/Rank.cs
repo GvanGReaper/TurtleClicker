@@ -65,7 +65,7 @@ namespace TurtleClicker
             }
             else
             {
-                return "Really?You cant even fucking click?";
+                return "Maybe try visiting the How to Play section...";
             }
         }
     }
