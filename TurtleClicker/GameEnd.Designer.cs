@@ -41,6 +41,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label1.Location = new System.Drawing.Point(12, 167);
             this.label1.Name = "label1";
@@ -51,6 +52,7 @@
             // finalScore
             // 
             this.finalScore.AutoSize = true;
+            this.finalScore.BackColor = System.Drawing.Color.Transparent;
             this.finalScore.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.finalScore.Location = new System.Drawing.Point(223, 167);
             this.finalScore.Name = "finalScore";
@@ -62,6 +64,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label3.Location = new System.Drawing.Point(12, 233);
             this.label3.Name = "label3";
@@ -73,6 +76,7 @@
             // Rank
             // 
             this.Rank.AutoSize = true;
+            this.Rank.BackColor = System.Drawing.Color.Transparent;
             this.Rank.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.Rank.Location = new System.Drawing.Point(111, 233);
             this.Rank.Name = "Rank";
@@ -83,6 +87,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label5.Location = new System.Drawing.Point(12, 57);
             this.label5.Name = "label5";
@@ -103,6 +108,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label2.Location = new System.Drawing.Point(14, 113);
             this.label2.Name = "label2";
@@ -113,6 +119,7 @@
             // difficultyLabel
             // 
             this.difficultyLabel.AutoSize = true;
+            this.difficultyLabel.BackColor = System.Drawing.Color.Transparent;
             this.difficultyLabel.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.difficultyLabel.Location = new System.Drawing.Point(209, 113);
             this.difficultyLabel.Name = "difficultyLabel";
@@ -124,6 +131,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TurtleClicker.Properties.Resources.gameEndImage;
             this.ClientSize = new System.Drawing.Size(845, 450);
             this.Controls.Add(this.difficultyLabel);
             this.Controls.Add(this.label2);

@@ -71,7 +71,7 @@ namespace TurtleClicker
             if (normalButton.Checked)
             {
                 difficulty_pic.Visible = true;
-                difficulty_pic.BackgroundImage = Properties.Resources.evil_turtle1;
+                difficulty_pic.BackgroundImage = Properties.Resources.evil_turtle_final;
                 difficulty_pic.Update();
                 startButton.Enabled = true;
             }

@@ -13,6 +13,7 @@ namespace TurtleClicker
         {
             var random = new Random();
             int num = random.Next();
+            //1 in 5 chance of showing up
             if(num % 5 == 0)
             {
                 return "E2M1: I clicked the turtles.";
@@ -33,6 +34,7 @@ namespace TurtleClicker
             {
                 return "Somebody once told me...";
             }
+            //one in 10 chance of showing up
             else if(num% 10 == 0)
             {
                 return "To turtle,or not to turtle.THAT is the question";

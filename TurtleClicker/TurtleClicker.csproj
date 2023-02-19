@@ -129,9 +129,6 @@
     <None Include="Resources\evil_turtle.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\evil_turtle1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\HowToPlay.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +139,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ocean_bird_view.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gameEndImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\evil_turtle_final.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

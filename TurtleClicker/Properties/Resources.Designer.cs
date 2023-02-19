@@ -103,9 +103,9 @@ namespace TurtleClicker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap evil_turtle1 {
+        internal static System.Drawing.Bitmap evil_turtle_final {
             get {
-                object obj = ResourceManager.GetObject("evil_turtle1", resourceCulture);
+                object obj = ResourceManager.GetObject("evil_turtle_final", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +116,16 @@ namespace TurtleClicker.Properties {
         internal static System.Drawing.Bitmap ez_mode_turtle {
             get {
                 object obj = ResourceManager.GetObject("ez_mode_turtle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gameEndImage {
+            get {
+                object obj = ResourceManager.GetObject("gameEndImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

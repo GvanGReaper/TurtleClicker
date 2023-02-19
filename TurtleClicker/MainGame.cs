@@ -21,22 +21,13 @@ namespace TurtleClicker
         {
             InitializeComponent();
             this.difficulty = difficulty;
-            if(difficulty == "Easy")
-            {
-                turtle.Image = Properties.Resources.evil_turtle1;
-            }
-            else if(difficulty == "Normal")
-            {
-                turtle.Image = Properties.Resources.evil_turtle1;
-            }
-            else if(difficulty == "Hard")
-            {
-                turtle.Image = Properties.Resources.dead_turtle;
-            }
             turtle.Update();
+            //just realised that i could propably make all the following changes to the turtle picturebox object through the Turtle class by 
+            //senting it as a reference.Havent messed with it yet though in case it breaks and we dont manage to fix it before the deadline.
+            //Might fix later...
             turtle_enemy = new Turtle(difficulty,turtle);
-            turtle_enemy.change_Image();
-            turtle = turtle_enemy.getPictureBox();
+            turtle_enemy.change_Image(); 
+            turtle = turtle_enemy.getPictureBox(); //for now,this is required
         }
 
         public int getCounter()
@@ -86,17 +77,17 @@ namespace TurtleClicker
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (counter == 0)
+            if (counter == 0) 
             {
                 Debug.WriteLine(getScore());
                 GameEnd endGameScreen = new GameEnd(score,difficulty);
                 endGameScreen.Show();
                 this.Close();
             }
-            counter--;
+            counter--; 
             timerText.Text = counter.ToString();
             timerText.Update();
-            turtle_enemy.turtle_act(ref turtle);
+            turtle_enemy.turtle_act(ref turtle); //turtle makes move here
         }
 
         private void label3_Click(object sender, EventArgs e)

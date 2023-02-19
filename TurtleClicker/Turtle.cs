@@ -13,16 +13,10 @@ namespace TurtleClicker
     {
         private PictureBox pictureBox;
         private String difficulty; // "Easy"/"Normal"/"Hard"
-        private int speed;
-        private bool enraged;
-        private int phase; //1 - 3
         public Turtle(string difficulty, PictureBox pictureBox)
         {
             this.difficulty = difficulty;
             this.pictureBox = pictureBox;
-            this.phase = 1;
-            this.speed = 0;
-            this.enraged = false;
         }
 
         public PictureBox getPictureBox()
@@ -39,31 +33,6 @@ namespace TurtleClicker
         public void setDifficulty(String difficulty)
         {
             this.difficulty = difficulty;
-        }
-
-        public int getSpeed()
-        {
-            return speed;
-        }
-
-        public void setSpeed(int speed)
-        {
-            this.speed = speed;
-        }
-
-        public bool isEnraged()
-        {
-            return enraged;
-        }
-
-        public int getPhase()
-        {
-            return phase;
-        }
-
-        public void setPhase(int phase)
-        {
-            this.phase = phase;
         }
 
         //this multiplier is used for a lot of different calculations and it depends on the 
@@ -83,14 +52,11 @@ namespace TurtleClicker
             {
                 result = 8;
             }
-            if (isEnraged())
-            {
-                result = result * 3;
-            }
             return result;
         }
 
         
+        //sets the image of the turtle according to the chosen difficulty
         internal void change_Image()
         {
             if(getDifficulty() == "Easy")
@@ -100,7 +66,7 @@ namespace TurtleClicker
             }
             else if (getDifficulty() == "Normal")
             {
-                pictureBox.Image = Properties.Resources.evil_turtle1;
+                pictureBox.Image = Properties.Resources.evil_turtle_final; 
                 pictureBox.Update();
             }
             else if(getDifficulty() == "Hard")
@@ -110,11 +76,6 @@ namespace TurtleClicker
             }
         }
 
-        internal void calculateSpeed()
-        {
-            int speed = getPhase()*getDifficultyMultiplier();
-            setSpeed(speed);
-        }
         
         //the sprite origin is at the top left corner and the sprite is 65x65.Thus moving 32 pixels
         //down and to the right should give us the center of the sprite.
@@ -138,6 +99,8 @@ namespace TurtleClicker
 
         private Point chooseMove(PictureBox pictureBox)
         {
+            //these 3 are currently mostly the same but are within seperate methods and branches for the sake of
+            //extendability if we decide to add more unique behavior to each separate difficulty
             if(getDifficulty() == "Easy")
             {
                 return easyMove(pictureBox);
@@ -146,17 +109,17 @@ namespace TurtleClicker
             {
                 return normalMove(pictureBox);
             }
-            else if(getDifficulty() == "Hard")
+            else
             {
                 return hardmove(pictureBox);
-            }
-            return new Point(0, 0);
+            }     
         }
 
         private Point easyMove(PictureBox pictureBox)
         {
             var random = new Random();
             int nextMove = random.Next();
+            //1 in 4 chance for every one of the following moves
             if(nextMove%4 == 0)
             {
                 return moveInRadius(pictureBox);
@@ -167,7 +130,7 @@ namespace TurtleClicker
             }
             else if(nextMove%4 == 2)
             {
-                return moveVerticaly(pictureBox);
+                return moveVertically(pictureBox);
             }
             else
             {
@@ -179,6 +142,7 @@ namespace TurtleClicker
         {
             var random = new Random();
             int nextMove = random.Next();
+            //1 in 5 chance here since the turtle can now move in a random point of the screen thus adding a 5th alternative.
             if (nextMove % 5 == 0)
             {
                 return moveInRadius(pictureBox);
@@ -189,7 +153,7 @@ namespace TurtleClicker
             }
             else if (nextMove % 5 == 2)
             {
-                return moveVerticaly(pictureBox);
+                return moveVertically(pictureBox);
             }
             else if(nextMove% 5 == 3)
             {
@@ -205,17 +169,23 @@ namespace TurtleClicker
         {
             var random = new Random();
             int nextMove = random.Next();
-            if (nextMove % 4 == 0)
+            //1 in 5 chance here since the turtle can now move in a random point of the screen thus adding a 5th alternative.
+            //Again,this is the same right now but was added for the sake of it making the possibility of adding more difficulty unique behavior easier.
+            if (nextMove % 5 == 0)
             {
                 return moveInRadius(pictureBox);
             }
-            else if (nextMove % 4 == 1)
+            else if (nextMove % 5 == 1)
             {
                 return moveHorizontaly(pictureBox);
             }
-            else if (nextMove % 4 == 2)
+            else if (nextMove % 5 == 2)
             {
-                return moveVerticaly(pictureBox);
+                return moveVertically(pictureBox);
+            }
+            else if (nextMove % 5 == 3)
+            {
+                return new Point(random.Next(0, 900), random.Next(0, 600));
             }
             else
             {
@@ -236,6 +206,7 @@ namespace TurtleClicker
             }
         }
 
+        //Chooses a random point in a radius of the turtles current location to move to.
         private Point moveInRadius(PictureBox pictureBox)
         {
             var random = new Random();
@@ -249,6 +220,7 @@ namespace TurtleClicker
             return new Point(intX, intY);
         }
 
+        //Moves horizontaly within a certain range
         private Point moveHorizontaly(PictureBox pictureBox)
         {
             var random = new Random();
@@ -257,7 +229,8 @@ namespace TurtleClicker
             return new Point(newX, pictureBox.Location.Y);
         }
 
-        private Point moveVerticaly(PictureBox pictureBox)
+        //Moves vertically by a certain range
+        private Point moveVertically(PictureBox pictureBox)
         {
             var random = new Random();
             int originalY = pictureBox.Location.Y;
